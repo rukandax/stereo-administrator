@@ -1,0 +1,13 @@
+{
+    "name": "rukandax/stereo-administrator",
+    "description": "Learning Center Administrator",
+    "require": {
+        "vlucas/phpdotenv": "^3.4"
+    },
+    "authors": [
+        {
+            "name": "Rukanda Faridsi",
+            "email": "hey@rukandax.xyz"
+        }
+    ]
+}
