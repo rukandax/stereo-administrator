@@ -30,7 +30,7 @@
               <td valign="middle"><?= $no ?></td>
               <td valign="middle"><?= $value['name'] ?></td>
               <td>
-                <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                <a href="<?= base_url('/division/edit/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                 <a href="<?= base_url('/division/delete/' . $value['id']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
               </td>
             </tr>

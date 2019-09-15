@@ -8,6 +8,13 @@ class Division_model extends CI_Model {
     return $this->db->get('division')->result_array();
   }
 
+  public function get_division($id)
+  {
+    return $this->db->get_where('division', [
+      'id' => $id
+    ])->result_array();
+  }
+
   public function insert_division($params)
   {
     $current = $this->db->get_where('division', $params)->result_array();
@@ -17,6 +24,17 @@ class Division_model extends CI_Model {
     }
 
     return $this->db->insert('division', $params);
+  }
+
+  public function update_division($params, $id)
+  {
+    $current = $this->db->get_where('division', $params)->result_array();
+
+    if (count($current) > 0) {
+      return false;
+    }
+
+    return $this->db->where('id', $id)->set($params)->update('division');
   }
 
   public function delete_division($id)
