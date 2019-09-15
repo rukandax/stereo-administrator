@@ -29,16 +29,16 @@ $sidebar = [
   ],
   [
     "type" => "collapse",
-    "text" => "Organization",
+    "text" => "Departement",
     "icon" => "fa-users",
     "item" => [
       [
-        "text" => "Add Organization",
-        "link" => "/organization/new",
+        "text" => "Add Departement",
+        "link" => "/departement/new",
       ],
       [
-        "text" => "List Organization",
-        "link" => "/organization",
+        "text" => "List Departement",
+        "link" => "/departement",
       ],
     ],
   ],
