@@ -42,4 +42,19 @@ $sidebar = [
       ],
     ],
   ],
+  [
+    "type" => "collapse",
+    "text" => "Division",
+    "icon" => "fa-users",
+    "item" => [
+      [
+        "text" => "Add Division",
+        "link" => "/division/new",
+      ],
+      [
+        "text" => "List Division",
+        "link" => "/division",
+      ],
+    ],
+  ],
 ];

@@ -157,7 +157,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; PT Provalindo 2019</span>
           </div>
         </div>
       </footer>
@@ -192,12 +192,40 @@
     </div>
   </div>
 
+  <?php
+  if (!empty($_SESSION['notify'])) {
+    ?>
+    <div id="notify" data-type="<?= $_SESSION['notify']['type'] ?>" hidden><?= $_SESSION['notify']['text'] ?></div>
+    <?php
+    unset($_SESSION['notify']);
+  }
+  ?>
+
+  <!-- Script From Theme -->
   <script src="<?= base_url('/public/vendor/jquery/jquery.min.js') ?>"></script>
   <script src="<?= base_url('/public/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
   <script src="<?= base_url('/public/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
   <script src="<?= base_url('/public/js/sb-admin-2.min.js') ?>"></script>
   <script src="<?= base_url('/public/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
   <script src="<?= base_url('/public/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
+
+  <!-- Script For Notify -->
+  <script src="<?= base_url('/bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js') ?>"></script>
+
+  <script>
+    if ($('#notify') && $('#notify').text()) {
+      setTimeout(function() {
+        $.notify($('#notify').text(), {
+          placement: {
+            from: "top",
+            align: "center"
+          },
+          allow_dismiss: true,
+          type: $('#notify').data('type') || 'info'
+        });
+      }, 500);
+    }
+  </script>
 
   <?php
   foreach ($script as $key => $value) {

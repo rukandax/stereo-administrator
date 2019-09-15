@@ -6,11 +6,11 @@ class Administrator extends MY_Controller {
 	public function index()
 	{
     $this->use_style([
-      '/public/css/administrator.css',
+      '/public/css/administrator/index.css',
     ]);
 
     $this->use_script([
-      '/public/js/administrator.js',
+      '/public/js/administrator/index.js',
     ]);
 
     $this->load->model('user_model');
@@ -20,6 +20,6 @@ class Administrator extends MY_Controller {
       'administrator' => $administrator,
     ]);
 
-    $this->render('administrator');
+    $this->render('administrator/index');
 	}
 }
