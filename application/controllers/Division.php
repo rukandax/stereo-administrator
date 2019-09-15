@@ -82,12 +82,21 @@ class Division extends MY_Controller {
     $this->render('division/edit');
   }
 
-  public function update()
+  public function update($id)
 	{
+    if (empty($id)) {
+      $_SESSION['notify'] = [
+        'text' => "Division doesn't exist",
+        'type' => 'danger'
+      ];
+
+      redirect('/division');
+    }
+
     $this->load->model('division_model');
     $update = $this->division_model->update_division([
       'name' => $this->input->post('name'),
-    ], $this->input->post('id'));
+    ], $id);
 
     if ($update) {
       $_SESSION['notify'] = [
@@ -103,7 +112,7 @@ class Division extends MY_Controller {
       'type' => 'danger'
     ];
 
-    redirect('/division/new');
+    redirect('/division/edit/' . $id);
   }
 
   public function delete($id)
@@ -134,6 +143,6 @@ class Division extends MY_Controller {
       'type' => 'danger'
     ];
 
-    redirect('/division/new');
+    redirect('/division');
   }
 }

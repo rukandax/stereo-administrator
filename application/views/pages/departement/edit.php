@@ -5,15 +5,14 @@
 
 <div class="card shadow mb-4">
   <div class="card-body">
-    <form method="post" action="<?= base_url('/departement/create') ?>">
-      <input type="hidden" name="id" value="<?= $data['departement'][0]['id'] ?>">
+    <form method="post" action="<?= base_url('/departement/update/' . $data['departement'][0]['id']) ?>">
       <div class="form-group">
         <label for="name">Departement Name</label>
         <input required type="text" value="<?= $data['departement'][0]['departement_name'] ?>" class="form-control" id="name" name="name" placeholder="Departement Name">
       </div>
       <div class="form-group">
         <label for="name">Division Name</label>
-        <select name="division" required class="custom-select">
+        <select name="division" required class="custom-select" data-value="<?= $data['departement'][0]['division_id'] ?>">
           <option selected disabled>Choose Division Name</option>
           <?php
           foreach ($data['division'] as $key => $value) {

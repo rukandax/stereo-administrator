@@ -71,8 +71,15 @@ class Departement extends MY_Controller {
       redirect('/departement');
     }
 
+    $this->use_script([
+      '/public/js/departement/edit.js',
+    ]);
+
     $this->load->model('departement_model');
     $departement = $this->departement_model->get_departement($id);
+
+    $this->load->model('division_model');
+    $division = $this->division_model->all_division();
 
     if (count($departement) <= 0) {
       $_SESSION['notify'] = [
@@ -85,17 +92,28 @@ class Departement extends MY_Controller {
 
     $this->set_data([
       'departement' => $departement,
+      'division' => $division,
     ]);
 
     $this->render('departement/edit');
   }
 
-  public function update()
+  public function update($id)
 	{
+    if (empty($id)) {
+      $_SESSION['notify'] = [
+        'text' => "Departement doesn't exist",
+        'type' => 'danger'
+      ];
+
+      redirect('/departement');
+    }
+
     $this->load->model('departement_model');
     $update = $this->departement_model->update_departement([
       'name' => $this->input->post('name'),
-    ], $this->input->post('id'));
+      'division' => $this->input->post('division'),
+    ], $id);
 
     if ($update) {
       $_SESSION['notify'] = [
@@ -111,7 +129,7 @@ class Departement extends MY_Controller {
       'type' => 'danger'
     ];
 
-    redirect('/departement/new');
+    redirect('/departement/edit/' . $id);
   }
 
   public function delete($id)
@@ -142,6 +160,6 @@ class Departement extends MY_Controller {
       'type' => 'danger'
     ];
 
-    redirect('/departement/new');
+    redirect('/departement');
   }
 }

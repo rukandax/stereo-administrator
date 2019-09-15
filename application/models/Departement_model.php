@@ -5,7 +5,7 @@ class Departement_model extends CI_Model {
 
   public function all_departement()
   {
-    return $this->db->select('*, departement.id as departement_id, departement.name as departement_name, division.name as division_name')
+    return $this->db->select('*, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
                     ->join('division', 'division.id = departement.division')
                     ->get('departement')
                     ->result_array();
@@ -13,7 +13,7 @@ class Departement_model extends CI_Model {
 
   public function get_departement($id)
   {
-    return $this->db->select('*, departement.id as departement_id, departement.name as departement_name, division.name as division_name')
+    return $this->db->select('*, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
                     ->join('division', 'division.id = departement.division')
                     ->get_where('departement', [
                         'departement.id' => $id
