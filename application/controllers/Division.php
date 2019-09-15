@@ -37,7 +37,7 @@ class Division extends MY_Controller {
 
     if ($insert) {
       $_SESSION['notify'] = [
-        'text' => 'Division inserted successfully',
+        'text' => 'Division added successfully',
         'type' => 'success'
       ];
 
