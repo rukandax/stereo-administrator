@@ -5,6 +5,8 @@ class Division extends MY_Controller {
 
 	public function index()
 	{
+    $this->set_title('List Division');
+
     $this->use_style([
       '/public/css/division/index.css',
     ]);
@@ -25,6 +27,8 @@ class Division extends MY_Controller {
 
   public function new()
 	{
+    $this->set_title('Add New Division');
+
     $this->render('division/new');
   }
 
@@ -54,6 +58,8 @@ class Division extends MY_Controller {
 
   public function edit($id)
 	{
+    $this->set_title('Edit Division');
+
     if (empty($id)) {
       $_SESSION['notify'] = [
         'text' => "Division doesn't exist",

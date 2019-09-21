@@ -5,6 +5,8 @@ class Superadmin extends MY_Controller {
 
 	public function index()
 	{
+    $this->set_title('List Super Admin');
+
     $this->use_style([
       '/public/css/superadmin/index.css',
     ]);
@@ -25,6 +27,8 @@ class Superadmin extends MY_Controller {
 
   public function new()
 	{
+    $this->set_title('Add New Super Admin');
+
     $this->render('superadmin/new');
   }
 
@@ -75,6 +79,8 @@ class Superadmin extends MY_Controller {
 
   public function edit($id)
 	{
+    $this->set_title('Edit Super Admin');
+
     if (empty($id)) {
       $_SESSION['notify'] = [
         'text' => "Super Admin doesn't exist",

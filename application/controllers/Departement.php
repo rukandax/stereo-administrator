@@ -5,6 +5,8 @@ class Departement extends MY_Controller {
 
 	public function index()
 	{
+    $this->set_title('List Departement');
+
     $this->use_style([
       '/public/css/departement/index.css',
     ]);
@@ -29,6 +31,8 @@ class Departement extends MY_Controller {
 
   public function new()
 	{
+    $this->set_title('Add New Departement');
+
     $this->load->model('division_model');
     $division = $this->division_model->all_division();
 
@@ -66,6 +70,8 @@ class Departement extends MY_Controller {
 
   public function edit($id)
 	{
+    $this->set_title('Edit Departement');
+
     if (empty($id)) {
       $_SESSION['notify'] = [
         'text' => "Departement doesn't exist",

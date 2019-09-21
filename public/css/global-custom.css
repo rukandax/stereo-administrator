@@ -1,7 +1,7 @@
-.form-control {
+.form-control, .custom-select {
   color: #000;
 }
 
-.form-control:focus {
+.form-control:focus, .custom-select:focus {
   color: #000;
 }
