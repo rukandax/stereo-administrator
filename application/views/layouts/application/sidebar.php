@@ -7,16 +7,16 @@ $sidebar = [
   ],
   [
     "type" => "collapse",
-    "text" => "Administrator",
+    "text" => "Super Admin",
     "icon" => "fa-user",
     "item" => [
       [
-        "text" => "Add Administrator",
-        "link" => "/administrator/new",
+        "text" => "Add Super Admin",
+        "link" => "/superadmin/new",
       ],
       [
-        "text" => "List Administrator",
-        "link" => "/administrator",
+        "text" => "List Super Admin",
+        "link" => "/superadmin",
       ],
     ],
   ],
@@ -26,21 +26,6 @@ $sidebar = [
   [
     "type" => "header",
     "text" => "Manage Data",
-  ],
-  [
-    "type" => "collapse",
-    "text" => "Departement",
-    "icon" => "fa-users",
-    "item" => [
-      [
-        "text" => "Add Departement",
-        "link" => "/departement/new",
-      ],
-      [
-        "text" => "List Departement",
-        "link" => "/departement",
-      ],
-    ],
   ],
   [
     "type" => "collapse",
@@ -54,6 +39,21 @@ $sidebar = [
       [
         "text" => "List Division",
         "link" => "/division",
+      ],
+    ],
+  ],
+  [
+    "type" => "collapse",
+    "text" => "Departement",
+    "icon" => "fa-users",
+    "item" => [
+      [
+        "text" => "Add Departement",
+        "link" => "/departement/new",
+      ],
+      [
+        "text" => "List Departement",
+        "link" => "/departement",
       ],
     ],
   ],

@@ -8,7 +8,7 @@
     <form method="post" action="<?= base_url('/departement/create') ?>">
       <div class="form-group">
         <label for="name">Departement Name</label>
-        <input required type="text" class="form-control" id="name" name="name" placeholder="Departement Name">
+        <input required type="text" class="form-control" id="name" name="name">
       </div>
       <div class="form-group">
         <label for="name">Division Name</label>
