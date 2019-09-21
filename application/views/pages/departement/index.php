@@ -46,3 +46,5 @@
     </div>
   </div>
 </div>
+
+<div id="js-external-data" data-division='<?= json_encode($data['division']) ?>'></div>

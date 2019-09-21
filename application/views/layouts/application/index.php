@@ -10,6 +10,7 @@
   <?= link_tag("/public/vendor/fontawesome-free/css/all.min.css") ?>
   <?= link_tag("/public/vendor/datatables/dataTables.bootstrap4.min.css") ?>
   <?= link_tag("/public/css/sb-admin-2.min.css") ?>
+  <?= link_tag("/public/css/global-custom.css") ?>
 
   <?php
   foreach ($style as $key => $value) {
@@ -113,7 +114,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-4 d-none d-lg-inline text-gray-600">Valerie Luna</span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -210,7 +211,8 @@
             align: "center"
           },
           allow_dismiss: true,
-          type: $('#notify').data('type') || 'info'
+          newest_on_top: true,
+          type: $('#notify').data('type') || 'info',
         });
       }, 500);
     }

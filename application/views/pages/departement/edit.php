@@ -8,7 +8,7 @@
     <form method="post" action="<?= base_url('/departement/update/' . $data['departement'][0]['id']) ?>">
       <div class="form-group">
         <label for="name">Departement Name</label>
-        <input required type="text" value="<?= $data['departement'][0]['departement_name'] ?>" class="form-control" id="name" name="name">
+        <input required type="text" value="<?= $data['departement'][0]['departement_name'] ?>" autocomplete="off" class="form-control" id="name" name="name">
       </div>
       <div class="form-group">
         <label for="name">Division Name</label>

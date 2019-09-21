@@ -13,10 +13,14 @@ class Departement extends MY_Controller {
       '/public/js/departement/index.js',
     ]);
 
+    $this->load->model('division_model');
+    $division = $this->division_model->all_division();
+
     $this->load->model('departement_model');
     $departement = $this->departement_model->all_departement();
 
     $this->set_data([
+      'division' => $division,
       'departement' => $departement,
     ]);
 

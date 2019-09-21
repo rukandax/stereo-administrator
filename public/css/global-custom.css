@@ -1,0 +1,7 @@
+.form-control {
+  color: #000;
+}
+
+.form-control:focus {
+  color: #000;
+}
