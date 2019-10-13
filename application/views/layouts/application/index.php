@@ -27,7 +27,7 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center bg-white" href="<?= base_url() ?>">
-        <img src="<?= base_url('/public/image/logo.png') ?>" alt="Bank BTN" />
+        <img src="<?= base_url('/public/image/logo.png') ?>" alt="Bank BTN" class="w-100" />
       </a>
 
       <!-- Divider -->

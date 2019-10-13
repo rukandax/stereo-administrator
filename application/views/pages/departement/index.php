@@ -34,7 +34,7 @@
               <td valign="middle"><?= $value['division_name'] ?></td>
               <td>
                 <a href="<?= base_url('/departement/edit/' . $value['departement_id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                <a href="<?= base_url('/departement/delete/' . $value['departement_id']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</a>
+                <a href="<?= base_url('/departement/delete/' . $value['departement_id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this data ?');"><i class="fas fa-trash-alt"></i> Delete</a>
               </td>
             </tr>
             <?php
