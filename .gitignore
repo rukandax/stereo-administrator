@@ -1,6 +1,7 @@
 .DS_Store
 
 upload/*
+!upload/README.md
 application/cache/*
 !application/cache/index.html
 
