@@ -21,6 +21,21 @@ $sidebar = [
     ],
   ],
   [
+    "type" => "collapse",
+    "text" => "User",
+    "icon" => "fa-users",
+    "item" => [
+      [
+        "text" => "Add User",
+        "link" => "/user/new",
+      ],
+      [
+        "text" => "List User",
+        "link" => "/user",
+      ],
+    ],
+  ],
+  [
     "type" => "divider",
   ],
   [

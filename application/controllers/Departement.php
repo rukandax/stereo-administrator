@@ -68,6 +68,48 @@ class Departement extends MY_Controller {
     redirect('/departement/new');
   }
 
+  public function import()
+  {
+    $config['upload_path'] = __DIR__ . '/../../upload/departement_file';
+    $config['allowed_types'] = 'csv|xls|xlsx';
+    $config['encrypt_name'] = TRUE;
+
+    $this->load->library('upload', $config);
+
+    if (!$this->upload->do_upload('departement_file')) {
+      $error = array('error' => $this->upload->display_errors());
+    } else {
+      $data = array('upload_data' => $this->upload->data());
+    }
+
+    $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($data['upload_data']['full_path']);
+    $worksheet = $spreadsheet->getActiveSheet();
+    $skip_row = 1;
+
+    foreach ($worksheet->getRowIterator() as $key => $row) {
+      if ($key <= $skip_row) {
+        continue;
+      }
+
+      $cellIterator = $row->getCellIterator();
+      $cellIterator->setIterateOnlyExistingCells(FALSE);
+      $cells = [];
+
+      foreach ($cellIterator as $cell) {
+        $cells[] = $cell->getValue();
+      }
+
+      $this->load->model('departement_model');
+      $insert = $this->departement_model->insert_departement([
+        'id' => $cells[0],
+        'name' => $cells[1],
+        'division' => 1,
+      ]);
+    }
+
+    redirect('/departement');
+  }
+
   public function edit($id)
 	{
     $this->set_title('Edit Departement');

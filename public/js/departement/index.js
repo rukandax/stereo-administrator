@@ -35,4 +35,8 @@ $(document).ready(function() {
 
     dataTable.draw();
   });
+
+  $("#import-field").change(() => {
+    $("#import-form").submit();
+  });
 });

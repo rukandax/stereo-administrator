@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
 
+  public function all_user()
+  {
+    return $this->db->select('*, user.id as user_id, user.name as user_name, departement.id as departement_id, departement.name as departement_name')
+                    ->join('departement', 'departement.id = user.departement')
+                    ->get_where('user', [
+                      'role' => 'USER',
+                    ])->result_array();
+  }
+
   public function all_superadmin()
   {
     return $this->db->get_where('user', [

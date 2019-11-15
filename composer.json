@@ -2,7 +2,8 @@
     "name": "rukandax/stereo-administrator",
     "description": "Learning Center Administrator",
     "require": {
-        "vlucas/phpdotenv": "^3.4"
+        "vlucas/phpdotenv": "^3.4",
+        "phpoffice/phpspreadsheet": "^1.9"
     },
     "authors": [
         {
