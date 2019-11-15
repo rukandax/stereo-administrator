@@ -72,4 +72,26 @@ $sidebar = [
       ],
     ],
   ],
+  [
+    "type" => "divider",
+  ],
+  [
+    "type" => "header",
+    "text" => "Manage Quiz",
+  ],
+  [
+    "type" => "collapse",
+    "text" => "Quiz",
+    "icon" => "fa-users",
+    "item" => [
+      [
+        "text" => "Add Quiz",
+        "link" => "/quiz/new",
+      ],
+      [
+        "text" => "List Quiz",
+        "link" => "/quiz",
+      ],
+    ],
+  ],
 ];

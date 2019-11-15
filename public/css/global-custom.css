@@ -5,3 +5,7 @@
 .form-control:focus, .custom-select:focus {
   color: #000;
 }
+
+.btn {
+  cursor: pointer;
+}

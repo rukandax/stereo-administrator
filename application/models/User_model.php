@@ -24,7 +24,7 @@ class User_model extends CI_Model {
     return $this->db->get_where('user', [
       'id' => $id,
       'role' => 'SUPERADMIN'
-    ])->result_array();
+    ])->result_array()[0];
   }
 
   public function insert_user($params)
