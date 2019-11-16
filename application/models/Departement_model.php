@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Departement_model extends CI_Model {
 
-  public function all_departement($division_id)
+  public function all_departement($division_id = null)
   {
     $query = $this->db->select('*, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
                       ->join('division', 'division.id = departement.division');
