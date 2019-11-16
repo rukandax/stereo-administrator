@@ -8,6 +8,18 @@ class Quiz_model extends CI_Model {
     return $this->db->get('quiz')->result_array();
   }
 
+  public function get_quiz($id)
+  {
+    return $this->db->get_where('quiz', [
+                                  'id' => $id,
+                                ])->result_array()[0];
+  }
+
+  public function all_quiz_category()
+  {
+    return $this->db->get('quiz_category')->result_array();
+  }
+
   public function get_quiz_category($id)
   {
     return $this->db->get_where('quiz_category', [

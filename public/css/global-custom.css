@@ -9,3 +9,7 @@
 .btn {
   cursor: pointer;
 }
+
+.custom-control-label {
+  cursor: pointer;
+}

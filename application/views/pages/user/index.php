@@ -1,13 +1,14 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">List User</h1>
   <div class="d-sm-flex align-items-center justify-content-between">
-    <a href="<?= base_url('/user/new') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-4"><i class="fas fa-plus fa-sm text-white-50"></i> Add New</a>
-    <form id="import-form" method="post" action="<?= base_url('/user/import') ?>" enctype="multipart/form-data">
+    <a href="<?= base_url('/user/new') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-4"><i class="fas fa-plus fa-sm text-white-50 mr-2"></i> Add New</a>
+    <form id="import-form" class="mr-4" method="post" action="<?= base_url('/user/import') ?>" enctype="multipart/form-data">
       <label for="import-field" class="mb-0">
-        <div class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-file-import fa-sm text-white-50"></i> Import</div>
+        <div class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-file-import fa-sm text-white-50 mr-2"></i> Import</div>
       </label>
       <input type="file" id="import-field" name="user_file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" hidden>
     </form>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i class="fas fa-download fa-sm text-white-50 mr-2"></i> Download Format Import</a>
   </div>
 </div>
 
@@ -20,6 +21,7 @@
             <th>#</th>
             <th>Name</th>
             <th>NIP</th>
+            <th>Division</th>
             <th>Departement</th>
             <th>#</th>
           </tr>
@@ -29,6 +31,7 @@
             <th>#</th>
             <th>Name</th>
             <th>NIP</th>
+            <th>Division</th>
             <th>Departement</th>
             <th>#</th>
           </tr>
@@ -42,6 +45,7 @@
               <td valign="middle"><?= $no ?></td>
               <td valign="middle"><?= $value['user_name'] ?></td>
               <td valign="middle"><?= $value['nip'] ?></td>
+              <td valign="middle"><?= $value['division_name'] ?></td>
               <td valign="middle"><?= $value['departement_name'] ?></td>
               <td>
               <a href="<?= base_url('/user/edit/' . $value['user_id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>

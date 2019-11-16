@@ -15,7 +15,7 @@
             <th>Name</th>
             <th>Duration (Minutes)</th>
             <th>Schedule</th>
-            <th>Detail</th>
+            <th>Category</th>
             <th>#</th>
           </tr>
         </thead>
@@ -25,7 +25,7 @@
             <th>Name</th>
             <th>Duration (Minutes)</th>
             <th>Schedule</th>
-            <th>Detail</th>
+            <th>Category</th>
             <th>#</th>
           </tr>
         </tfoot>
@@ -51,6 +51,7 @@
                 ?>
               </td>
               <td>
+                <div class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Proctor Code</div>
                 <a href="<?= base_url('/quiz/edit/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                 <a href="<?= base_url('/quiz/duplicate/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-copy"></i> Duplicate</a>
                 <a href="<?= base_url('/quiz/delete/' . $value['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this data ?');"><i class="fas fa-trash-alt"></i> Delete</a>

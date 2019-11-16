@@ -1,13 +1,14 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">List Departement</h1>
   <div class="d-sm-flex align-items-center justify-content-between">
-    <a href="<?= base_url('/departement/new') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-4"><i class="fas fa-plus fa-sm text-white-50"></i> Add New</a>
-    <form id="import-form" method="post" action="<?= base_url('/departement/import') ?>" enctype="multipart/form-data">
+    <a href="<?= base_url('/departement/new') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-4"><i class="fas fa-plus fa-sm text-white-50 mr-2"></i> Add New</a>
+    <form id="import-form" class="mr-4" method="post" action="<?= base_url('/departement/import') ?>" enctype="multipart/form-data">
       <label for="import-field" class="mb-0">
-        <div class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-file-import fa-sm text-white-50"></i> Import</div>
+        <div class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-file-import fa-sm text-white-50 mr-2"></i> Import</div>
       </label>
       <input type="file" id="import-field" name="departement_file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" hidden>
     </form>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i class="fas fa-download fa-sm text-white-50 mr-2"></i> Download Format Import</a>
   </div>
 </div>
 

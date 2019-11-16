@@ -30,6 +30,13 @@ class Quiz extends MY_Controller {
 	{
     $this->set_title('Add New Quiz');
 
+    $this->load->model('quiz_model');
+    $quiz_category = $this->quiz_model->all_quiz_category();
+
+    $this->set_data([
+      'quiz_category' => $quiz_category,
+    ]);
+
     $this->render('quiz/new');
   }
 
@@ -149,8 +156,12 @@ class Quiz extends MY_Controller {
       redirect('/quiz');
     }
 
+    $this->load->model('quiz_model');
+    $quiz_category = $this->quiz_model->all_quiz_category();
+
     $this->set_data([
       'quiz' => $quiz,
+      'quiz_category' => $quiz_category,
     ]);
 
     $this->render('quiz/edit');
@@ -158,15 +169,6 @@ class Quiz extends MY_Controller {
 
   public function update($id)
 	{
-    if ($this->input->post('password') != $this->input->post('confirmpassword')) {
-      $_SESSION['notify'] = [
-        'text' => "Password & Confirm Password doesn't match",
-        'type' => 'danger'
-      ];
-
-      redirect('/quiz/edit/' . $id);
-    }
-
     if (empty($id)) {
       $_SESSION['notify'] = [
         'text' => "Quiz doesn't exist",
@@ -177,22 +179,20 @@ class Quiz extends MY_Controller {
     }
 
     $params = [
-      'nip' => $this->input->post('nip'),
       'name' => $this->input->post('name'),
+      'duration' => $this->input->post('duration'),
+      'date' => $this->input->post('schedule'),
     ];
 
-    if ($this->input->post('password') != '') {
-      if ($this->input->post('password') != $this->input->post('confirmpassword')) {
-        $_SESSION['notify'] = [
-          'text' => "Password & Confirm Password doesn't match",
-          'type' => 'danger'
-        ];
-
-        redirect('/quiz/edit/' . $id);
-      }
-
-      $params['password'] = $this->input->post('password');
+    $total_quiz_data = [];
+    foreach($this->input->post('category') as $key => $category) {
+      $total_quiz_data[] = [
+        'id' => $category,
+        'total' => $this->input->post('total')[$key],
+      ];
     }
+
+    $params['total_quiz_data'] = json_encode($total_quiz_data);
 
     $this->load->model('quiz_model');
     $update = $this->quiz_model->update_quiz($params, $id);
