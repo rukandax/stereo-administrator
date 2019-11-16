@@ -29,6 +29,17 @@ class User extends MY_Controller {
 	{
     $this->set_title('Add New User');
 
+    $this->use_script([
+      '/public/js/user/new.js',
+    ]);
+
+    $this->load->model('division_model');
+    $division = $this->division_model->all_division();
+
+    $this->set_data([
+      'division' => $division,
+    ]);
+
     $this->render('user/new');
   }
 
@@ -56,8 +67,9 @@ class User extends MY_Controller {
     $insert = $this->user_model->insert_user([
       'nip' => $this->input->post('nip'),
       'name' => $this->input->post('name'),
-      'password' => $this->input->post('password'),
-      'role' => 'USER'
+      'password' => md5($this->input->post('password')),
+      'role' => 'USER',
+      'departement' => $this->input->post('departement'),
     ]);
 
     if ($insert) {

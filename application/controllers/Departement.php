@@ -214,4 +214,14 @@ class Departement extends MY_Controller {
 
     redirect('/departement');
   }
+
+  public function json($division_id = null)
+  {
+    $this->set_layout('none');
+
+    $this->load->model('departement_model');
+    $departement = $this->departement_model->all_departement($division_id);
+
+    echo json_encode($departement);
+  }
 }

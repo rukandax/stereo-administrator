@@ -22,6 +22,25 @@
         <label for="confirmpassword">Confirm Password</label>
         <input required type="password" class="form-control" id="confirmpassword" name="confirmpassword">
       </div>
+      <div class="form-group">
+        <label for="user-division">Division Name</label>
+        <select name="division" id="user-division" required class="custom-select">
+          <option selected disabled>Choose Division Name</option>
+          <?php
+          foreach ($data['division'] as $key => $value) {
+            ?>
+            <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+            <?php
+          }
+          ?>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="user-departement">Departement Name</label>
+        <select name="departement" id="user-departement" required class="custom-select">
+          <option selected disabled>Choose Division First</option>
+        </select>
+      </div>
       <button type="submit" class="mt-3 btn btn-success">Submit</button>
       <a href="<?= base_url('/user') ?>" class="mt-3 btn btn-danger">Cancel</a>
     </form>

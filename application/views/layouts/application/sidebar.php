@@ -8,7 +8,7 @@ $sidebar = [
   [
     "type" => "collapse",
     "text" => "Super Admin",
-    "icon" => "fa-user",
+    "icon" => "fa-user-shield",
     "item" => [
       [
         "text" => "Add Super Admin",
@@ -23,7 +23,7 @@ $sidebar = [
   [
     "type" => "collapse",
     "text" => "User",
-    "icon" => "fa-users",
+    "icon" => "fa-user",
     "item" => [
       [
         "text" => "Add User",
@@ -45,7 +45,7 @@ $sidebar = [
   [
     "type" => "collapse",
     "text" => "Division",
-    "icon" => "fa-users",
+    "icon" => "fa-columns",
     "item" => [
       [
         "text" => "Add Division",
@@ -60,7 +60,7 @@ $sidebar = [
   [
     "type" => "collapse",
     "text" => "Departement",
-    "icon" => "fa-users",
+    "icon" => "fa-sitemap",
     "item" => [
       [
         "text" => "Add Departement",
@@ -82,7 +82,7 @@ $sidebar = [
   [
     "type" => "collapse",
     "text" => "Quiz",
-    "icon" => "fa-users",
+    "icon" => "fa-question-circle",
     "item" => [
       [
         "text" => "Add Quiz",

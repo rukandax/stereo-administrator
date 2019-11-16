@@ -38,7 +38,7 @@
               <td valign="middle"><?= $no ?></td>
               <td valign="middle"><?= $value['name'] ?></td>
               <td valign="middle"><?= $value['duration'] ?></td>
-              <td valign="middle"><?= date_format(date_create($value['date']), 'd M Y') ?></td>
+              <td valign="middle"><?= date_format(date_create($value['date']), 'd F Y') ?></td>
               <td valign="middle">
                 <?php
                   $details = json_decode($value['total_quiz_data']);
@@ -50,15 +50,10 @@
                   }
                 ?>
               </td>
-              <td class="d-flex">
-                <a href="<?= base_url('/quiz/edit/' . $value['id']) ?>" class="btn btn-warning btn-sm mr-3"><i class="fas fa-edit"></i> Edit</a>
-                <form id="import-form" method="post" action="<?= base_url('/quiz/import') ?>" enctype="multipart/form-data">
-                  <label for="import-field-<?= $key ?>" class="mb-0">
-                    <div class="btn btn-sm mr-3 btn-warning"><i class="fas fa-file-import fa-sm"></i> Import</div>
-                  </label>
-                  <input type="file" id="import-field-<?= $key ?>" name="quiz_file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" hidden>
-                </form>
-                <a href="<?= base_url('/quiz/delete/' . $value['id']) ?>" class="btn btn-danger btn-sm mr-3" onclick="return confirm('Are you sure want to delete this data ?');"><i class="fas fa-trash-alt"></i> Delete</a>
+              <td>
+                <a href="<?= base_url('/quiz/edit/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                <a href="<?= base_url('/duplicate/edit/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-copy"></i> Duplicate</a>
+                <a href="<?= base_url('/quiz/delete/' . $value['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this data ?');"><i class="fas fa-trash-alt"></i> Delete</a>
               </td>
             </tr>
             <?php

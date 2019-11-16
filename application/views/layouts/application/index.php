@@ -19,6 +19,12 @@
     <?php
   }
   ?>
+
+  <script>
+    window.saGlobal = {
+      base_url: '<?= base_url() ?>',
+    };
+  </script>
 </head>
 <body id="application">
   <div id="wrapper">
