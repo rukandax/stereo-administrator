@@ -5,8 +5,9 @@ class User_model extends CI_Model {
 
   public function all_user()
   {
-    return $this->db->select('*, user.id as user_id, user.name as user_name, departement.id as departement_id, departement.name as departement_name')
+    return $this->db->select('*, user.id as user_id, user.name as user_name, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
                     ->join('departement', 'departement.id = user.departement')
+                    ->join('division', 'division.id = departement.id')
                     ->get_where('user', [
                       'role' => 'USER',
                     ])->result_array();
@@ -16,7 +17,7 @@ class User_model extends CI_Model {
   {
     return $this->db->select('*, user.id as user_id, user.name as user_name, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
                     ->join('departement', 'departement.id = user.departement')
-                    ->join('division', 'division.id = user.departement')
+                    ->join('division', 'division.id = departement.id')
                     ->get_where('user', [
                       'user.id' => $id,
                       'role' => 'USER'
