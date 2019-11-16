@@ -12,7 +12,7 @@ $(document).ready(function() {
         </label>
       `);
 
-      divisions.forEach(division => {
+      divisions.forEach(function(division) {
         document.getElementById('departement-filter').insertAdjacentHTML('beforeend', `<option>${ division.name }</option>`);
       });
     }
@@ -36,7 +36,7 @@ $(document).ready(function() {
     dataTable.draw();
   });
 
-  $("#import-field").change(() => {
+  $("#import-field").change(function() {
     $("#import-form").submit();
   });
 });

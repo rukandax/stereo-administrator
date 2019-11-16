@@ -91,7 +91,7 @@ class Superadmin extends MY_Controller {
     }
 
     $this->load->model('user_model');
-    $superadmin = $this->user_model->get_superadmin($id)[0];
+    $superadmin = $this->user_model->get_superadmin($id);
 
     if (count($superadmin) <= 0) {
       $_SESSION['notify'] = [

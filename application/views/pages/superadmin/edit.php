@@ -5,14 +5,14 @@
 
 <div class="card shadow mb-4">
   <div class="card-body">
-    <form method="post" action="<?= base_url('/superadmin/update/' . $data['superadmin'][0]['id']) ?>">
+    <form method="post" action="<?= base_url('/superadmin/update/' . $data['superadmin']['id']) ?>">
       <div class="form-group">
         <label for="name">Name</label>
-        <input required type="text" class="form-control" value="<?= $data['superadmin'][0]['name'] ?>" autocomplete="off" id="name" name="name">
+        <input required type="text" class="form-control" value="<?= $data['superadmin']['name'] ?>" autocomplete="off" id="name" name="name">
       </div>
       <div class="form-group">
         <label for="nip">NIP</label>
-        <input required type="text" class="form-control" value="<?= $data['superadmin'][0]['nip'] ?>" autocomplete="off" id="nip" name="nip">
+        <input required type="text" class="form-control" value="<?= $data['superadmin']['nip'] ?>" autocomplete="off" id="nip" name="nip">
       </div>
       <div class="form-group">
         <label for="password">Password</label>

@@ -139,6 +139,10 @@ class User extends MY_Controller {
 	{
     $this->set_title('Edit User');
 
+    $this->use_script([
+      '/public/js/user/edit.js',
+    ]);
+
     if (empty($id)) {
       $_SESSION['notify'] = [
         'text' => "User doesn't exist",
@@ -160,8 +164,12 @@ class User extends MY_Controller {
       redirect('/user');
     }
 
+    $this->load->model('division_model');
+    $division = $this->division_model->all_division();
+
     $this->set_data([
       'user' => $user,
+      'division' => $division,
     ]);
 
     $this->render('user/edit');

@@ -52,7 +52,7 @@
               </td>
               <td>
                 <a href="<?= base_url('/quiz/edit/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                <a href="<?= base_url('/duplicate/edit/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-copy"></i> Duplicate</a>
+                <a href="<?= base_url('/quiz/duplicate/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-copy"></i> Duplicate</a>
                 <a href="<?= base_url('/quiz/delete/' . $value['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this data ?');"><i class="fas fa-trash-alt"></i> Delete</a>
               </td>
             </tr>

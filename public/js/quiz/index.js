@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $('#dataTable').DataTable();
 
-  $("#import-field").change(() => {
+  $("#import-field").change(function() {
     $("#import-form").submit();
   });
 });

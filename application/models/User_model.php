@@ -12,6 +12,17 @@ class User_model extends CI_Model {
                     ])->result_array();
   }
 
+  public function get_user($id)
+  {
+    return $this->db->select('*, user.id as user_id, user.name as user_name, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
+                    ->join('departement', 'departement.id = user.departement')
+                    ->join('division', 'division.id = user.departement')
+                    ->get_where('user', [
+                      'user.id' => $id,
+                      'role' => 'USER'
+                    ])->result_array()[0];
+  }
+
   public function all_superadmin()
   {
     return $this->db->get_where('user', [
