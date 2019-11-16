@@ -42,31 +42,25 @@ class Quiz extends MY_Controller {
 
   public function create()
 	{
-    if ($this->input->post('password') == '') {
-      $_SESSION['notify'] = [
-        'text' => "Password empty",
-        'type' => 'danger'
-      ];
-
-      redirect('/quiz/new');
-    }
-
-    if ($this->input->post('password') != $this->input->post('confirmpassword')) {
-      $_SESSION['notify'] = [
-        'text' => "Password & Confirm Password doesn't match",
-        'type' => 'danger'
-      ];
-
-      redirect('/quiz/new');
-    }
-
     $this->load->model('quiz_model');
-    $insert = $this->quiz_model->insert_quiz([
-      'nip' => $this->input->post('nip'),
+
+    $params = [
       'name' => $this->input->post('name'),
-      'password' => $this->input->post('password'),
-      'role' => 'USER'
-    ]);
+      'duration' => $this->input->post('duration'),
+      'date' => $this->input->post('schedule'),
+    ];
+
+    $total_quiz_data = [];
+    foreach($this->input->post('category') as $key => $category) {
+      $total_quiz_data[] = [
+        'id' => $category,
+        'total' => $this->input->post('total')[$key],
+      ];
+    }
+
+    $params['total_quiz_data'] = json_encode($total_quiz_data);
+
+    $insert = $this->quiz_model->insert_quiz($params);
 
     if ($insert) {
       $_SESSION['notify'] = [
@@ -78,7 +72,7 @@ class Quiz extends MY_Controller {
     }
 
     $_SESSION['notify'] = [
-      'text' => 'Quiz already exist',
+      'text' => 'There is something wrong',
       'type' => 'danger'
     ];
 
