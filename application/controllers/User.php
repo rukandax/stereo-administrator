@@ -198,6 +198,7 @@ class User extends MY_Controller {
     $params = [
       'nip' => $this->input->post('nip'),
       'name' => $this->input->post('name'),
+      'departement' => $this->input->post('departement'),
     ];
 
     if ($this->input->post('password') != '') {

@@ -79,52 +79,6 @@ class Quiz extends MY_Controller {
     redirect('/quiz/new');
   }
 
-  public function import()
-  {
-    $config['upload_path'] = __DIR__ . '/../../upload/quiz_file';
-    $config['allowed_types'] = 'csv|xls|xlsx';
-    $config['encrypt_name'] = TRUE;
-
-    $this->load->library('upload', $config);
-
-    if (!$this->upload->do_upload('quiz_file')) {
-      $error = array('error' => $this->upload->display_errors());
-    } else {
-      $data = array('upload_data' => $this->upload->data());
-    }
-
-    $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($data['upload_data']['full_path']);
-    $worksheet = $spreadsheet->getActiveSheet();
-    $skip_row = 1;
-
-    foreach ($worksheet->getRowIterator() as $key => $row) {
-      if ($key <= $skip_row) {
-        continue;
-      }
-
-      $cellIterator = $row->getCellIterator();
-      $cellIterator->setIterateOnlyExistingCells(FALSE);
-      $cells = [];
-
-      foreach ($cellIterator as $cell) {
-        $cells[] = $cell->getValue();
-      }
-
-      $this->load->model('quiz_model');
-      $insert = $this->quiz_model->insert_quiz([
-        'nip' => $cells[2],
-        'name' => $cells[1],
-        'password' => md5($cells[4]),
-        'email' => '',
-        'role' => 'USER',
-        'departement' => $cells[0],
-        'gender' => $cells[3] === 'L' ? 'MALE' : 'FEMALE',
-      ]);
-    }
-
-    redirect('/quiz');
-  }
-
   public function edit($id)
 	{
     $this->set_title('Edit Quiz');

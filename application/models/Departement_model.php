@@ -3,17 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Departement_model extends CI_Model {
 
-  public function all_departement($division_id = null)
+  public function all_departement()
   {
-    $query = $this->db->select('*, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
-                      ->join('division', 'division.id = departement.division');
-
-    if ($division_id) {
-      $query = $query->where('division', $division_id);
-    }
-
-    return $query->get('departement')
-                  ->result_array();
+    return $this->db->select('*, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
+                      ->join('division', 'division.id = departement.division')
+                      ->get('departement')
+                      ->result_array();
   }
 
   public function get_departement($id)
@@ -22,6 +17,16 @@ class Departement_model extends CI_Model {
                     ->join('division', 'division.id = departement.division')
                     ->get_where('departement', [
                         'departement.id' => $id
+                      ])
+                    ->result_array();
+  }
+
+  public function get_departement_by_division($id)
+  {
+    return $this->db->select('*, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
+                    ->join('division', 'division.id = departement.division')
+                    ->get_where('departement', [
+                        'departement.division' => $id
                       ])
                     ->result_array();
   }

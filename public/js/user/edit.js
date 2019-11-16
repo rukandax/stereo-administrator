@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $.get(`${saGlobal.base_url}departement/json/${$('#user-departement').data('value')}`, function(data) {
+  $.get(`${saGlobal.base_url}division/json/${$('#user-division').data('value')}/departement`, function(data) {
     const departements = JSON.parse(data);
     let options = '';
 
@@ -8,7 +8,7 @@ $(document).ready(function() {
     });
 
     $('#user-departement').html(`
-      <option selected disabled>Choose Division Name</option>\n
+      <option selected disabled>Choose Departement Name</option>\n
       ${options}
     `)
 

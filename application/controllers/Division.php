@@ -151,4 +151,23 @@ class Division extends MY_Controller {
 
     redirect('/division');
   }
+
+  public function json($division_id = null)
+  {
+    $this->set_layout('none');
+    $this->load->model('division_model');
+
+    if ($division_id) {
+      if (count(func_get_args()) > 1 && func_get_arg(1) == 'departement') {
+        $this->load->model('departement_model');
+        $output = $this->departement_model->get_departement_by_division($division_id);
+      } else {
+        $output = $this->division_model->get_division($division_id);
+      }
+    } else {
+      $output = $this->division_model->all_division();
+    }
+
+    echo json_encode($output);
+  }
 }

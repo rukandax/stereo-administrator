@@ -1,7 +1,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">List Quiz</h1>
   <div class="d-sm-flex align-items-center justify-content-between">
-    <a href="<?= base_url('/quiz/new') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add New</a>
+    <a href="<?= base_url('/quiz/new') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50 mr-2"></i> Add New</a>
   </div>
 </div>
 
@@ -15,7 +15,7 @@
             <th>Name</th>
             <th>Duration (Minutes)</th>
             <th>Schedule</th>
-            <th>Category</th>
+            <th>Question</th>
             <th>#</th>
           </tr>
         </thead>
@@ -25,7 +25,7 @@
             <th>Name</th>
             <th>Duration (Minutes)</th>
             <th>Schedule</th>
-            <th>Category</th>
+            <th>Question</th>
             <th>#</th>
           </tr>
         </tfoot>
@@ -45,7 +45,7 @@
 
                   foreach ($details as $detail) {
                     ?>
-                    <a href="#" class="btn btn-sm btn-secondary"><?= $data['quiz_model']->get_quiz_category($detail->id)['name'] ?> <span class="badge badge-light ml-2"><?= $detail->total ?></span></a>
+                    <a href="<?= base_url('/question/' . $value['id']) ?>" class="btn btn-sm btn-secondary"><?= $data['quiz_model']->get_quiz_category($detail->id)['name'] ?> <span class="badge badge-light ml-2"><?= $detail->total ?></span></a>
                     <?php
                   }
                 ?>

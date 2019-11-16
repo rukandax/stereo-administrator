@@ -7,7 +7,7 @@ class User_model extends CI_Model {
   {
     return $this->db->select('*, user.id as user_id, user.name as user_name, departement.id as departement_id, departement.name as departement_name, division.id as division_id, division.name as division_name')
                     ->join('departement', 'departement.id = user.departement')
-                    ->join('division', 'division.id = departement.id')
+                    ->join('division', 'division.id = departement.division')
                     ->get_where('user', [
                       'role' => 'USER',
                     ])->result_array();

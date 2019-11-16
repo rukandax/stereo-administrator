@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#user-division').change(function() {
-    $.get(`${saGlobal.base_url}departement/json/${$('#user-division').val()}`, function(data) {
+    $.get(`${saGlobal.base_url}division/json/${$('#user-division').val()}/departement`, function(data) {
       const departements = JSON.parse(data);
       let options = '';
 
@@ -9,7 +9,7 @@ $(document).ready(function() {
       });
 
       $('#user-departement').html(`
-        <option selected disabled>Choose Division Name</option>\n
+        <option selected disabled>Choose Departement Name</option>\n
         ${options}
       `)
     });
